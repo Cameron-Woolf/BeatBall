@@ -15,7 +15,7 @@ public class Paddel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false; // Hides the mouse cursor
+       
         _rigidBody = GetComponent<Rigidbody>();
         generateBalls();
     }

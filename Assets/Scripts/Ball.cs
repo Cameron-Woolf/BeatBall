@@ -59,8 +59,14 @@ public class Ball: MonoBehaviour
 
         // Controls how fast the Ball "falls" down.
         // And the general speed.
-        _rigidBody.velocity = Vector3.up * _speed;
+        //_rigidBody.velocity = Vector3.up * _speed;
+        Invoke("launchBall", 0.5f);
 
+    }
+
+    private void launchBall()
+    {
+        _rigidBody.velocity = Vector3.up * _speed;
     }
 
 
