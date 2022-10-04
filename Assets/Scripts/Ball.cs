@@ -37,10 +37,20 @@ public class Ball: MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Handles the impact on the Paddle
-        // collisions.contacts[0] just gets the first collision that occurs to the ball
-        // The normal is the angle of reflection
-        _rigidBody.velocity = Vector3.Reflect(_velocity, collision.contacts[0].normal);
+
+        if (collision.gameObject.name == "Floor")
+        {
+            GameManager.Instance.Balls--;
+            Destroy(gameObject);
+            Debug.Log("Ball hit the floor!");
+        }
+        else
+        {
+            // Handles the impact on the Paddle
+            // collisions.contacts[0] just gets the first collision that occurs to the ball
+            // The normal is the angle of reflection
+            _rigidBody.velocity = Vector3.Reflect(_velocity, collision.contacts[0].normal);
+        }
     }
 
     private void setUpBall()
@@ -49,7 +59,7 @@ public class Ball: MonoBehaviour
 
         // Controls how fast the Ball "falls" down.
         // And the general speed.
-        _rigidBody.velocity = Vector3.down * _speed;
+        _rigidBody.velocity = Vector3.up * _speed;
 
     }
 

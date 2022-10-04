@@ -15,10 +15,12 @@ public class Brick : MonoBehaviour
     private Renderer _renderer;
     private Material _orgMaterial;
 
+    private int _hits;
+
     // Start is called before the first frame update
     void Start()
     {
-        hits = 2;
+        _hits = hits;
         setBrickVariation();
         setBrickMaterial();
     }
@@ -30,9 +32,9 @@ public class Brick : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        hits--;
+        _hits--;
         // Score some points
-        if(hits <= 0)
+        if(_hits <= 0)
         { 
             GameManager.Instance.Score += points;
             //gameObject is always a predefined variable that accesses that Object
