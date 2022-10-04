@@ -33,7 +33,8 @@ public class Brick : MonoBehaviour
         hits--;
         // Score some points
         if(hits <= 0)
-        {
+        { 
+            GameManager.Instance.Score += points;
             //gameObject is always a predefined variable that accesses that Object
             //the script is attached too.
             Destroy(gameObject);
