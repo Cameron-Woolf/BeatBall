@@ -38,19 +38,20 @@ public class Ball: MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.name == "Floor")
-        {
-            GameManager.Instance.Balls--;
-            Destroy(gameObject);
-            Debug.Log("Ball hit the floor!");
-        }
-        else
-        {
-            // Handles the impact on the Paddle
-            // collisions.contacts[0] just gets the first collision that occurs to the ball
-            // The normal is the angle of reflection
-            _rigidBody.velocity = Vector3.Reflect(_velocity, collision.contacts[0].normal);
-        }
+        //if (collision.gameObject.name == "Floor")
+        //{
+        //    GameManager.Instance.Balls--;
+        //    Destroy(gameObject);
+        //    Debug.Log("Ball hit the floor!");
+        //}
+        //else
+        //{
+        //    // Handles the impact on the Paddle
+        //    // collisions.contacts[0] just gets the first collision that occurs to the ball
+        //    // The normal is the angle of reflection
+        //    _rigidBody.velocity = Vector3.Reflect(_velocity, collision.contacts[0].normal);
+        //}
+        ballCollision(collision);
     }
 
     private void setUpBall()
@@ -69,5 +70,22 @@ public class Ball: MonoBehaviour
         _rigidBody.velocity = Vector3.up * _speed;
     }
 
+    public void ballCollision(Collision collision)
+    {
 
+        if (collision.gameObject.name == "Floor")
+        {
+            GameManager.Instance.Balls--;
+            Destroy(gameObject);
+            Debug.Log("Ball hit the floor!");
+        }
+        else
+        {
+            // Handles the impact on the Paddle
+            // collisions.contacts[0] just gets the first collision that occurs to the ball
+            // The normal is the angle of reflection
+            _rigidBody.velocity = Vector3.Reflect(_velocity, collision.contacts[0].normal);
+        }
+    }
+  
 }
