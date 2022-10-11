@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour
     // What exactly are enums again?
     [SerializeField] public enum State { MENU, INIT, PLAY, LEVELCOMPLETED, LOADLEVEL, GAMEOVER}
 
+    public State getState()
+    {
+        return _state;
+    }
+
     private State _state;
     private GameObject _currentBall;
     private GameObject _currentLevel;
