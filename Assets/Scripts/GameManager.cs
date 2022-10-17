@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject paddlePrefab;
     [SerializeField] private GameObject ballPrefab;
+
+    // Levels are added to this Array in the Unity Editor!
     [SerializeField] private GameObject[] levels;
 
     [SerializeField] private TMP_Text scoreText;
@@ -91,7 +93,7 @@ public class GameManager : MonoBehaviour
     IEnumerator SwitchDelay(State newState, float delay)
     {
 
-        Debug.Log("SwitchDelay called");
+        //Debug.Log("SwitchDelay called");
         _isSwitchingState = true;
         yield return new WaitForSeconds(delay);
         EndState();
@@ -168,8 +170,8 @@ public class GameManager : MonoBehaviour
             case State.MENU:
                 break;
             case State.PLAY:
-                Debug.Log("Inisde Update Play");
-                Debug.Log($"Level child count = {_currentLevel.transform.childCount}");
+                //Debug.Log("Inisde Update Play");
+                //Debug.Log($"Level child count = {_currentLevel.transform.childCount}");
                 if (_currentBall == null)
                 {
                     if(Balls > 0)
