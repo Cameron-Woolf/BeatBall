@@ -26,13 +26,6 @@ public class ball_count_tests
        
     }
 
-    //[UnityTest]
-    //public IEnumerator switchToPlay()
-    //{ 
-
-    //    yield return new WaitForSeconds(3f);
-    //}
-
     [UnityTest]
     public IEnumerator ball_count_decreases_by_one_on_collision_with_floor()
     {
