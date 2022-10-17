@@ -2,27 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball: MonoBehaviour
+public class Ball: MonoBehaviour, IBall
 {
 
     private float _speed = 25f;
     private Rigidbody _rigidBody;
     private Vector3 _velocity;
+    private BallBehavior _ballBehavior;
+
     [SerializeField] GameObject ballPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
         setUpBall();
-      
-     
+
+
     }
 
     // Update is called once per frame
     // Whatever the frame rate is for the Game
     void Update()
     {
-        
+
     }
 
     // Called 100hz
@@ -38,24 +40,13 @@ public class Ball: MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        //if (collision.gameObject.name == "Floor")
-        //{
-        //    GameManager.Instance.Balls--;
-        //    Destroy(gameObject);
-        //    Debug.Log("Ball hit the floor!");
-        //}
-        //else
-        //{
-        //    // Handles the impact on the Paddle
-        //    // collisions.contacts[0] just gets the first collision that occurs to the ball
-        //    // The normal is the angle of reflection
-        //    _rigidBody.velocity = Vector3.Reflect(_velocity, collision.contacts[0].normal);
-        //}
+        string collisionObjectName = collision.gameObject.name;
         ballCollision(collision);
     }
 
     private void setUpBall()
     {
+        _ballBehavior = new BallBehavior();
         _rigidBody = GetComponent<Rigidbody>();
 
         // Controls how fast the Ball "falls" down.
@@ -75,17 +66,29 @@ public class Ball: MonoBehaviour
 
         if (collision.gameObject.name == "Floor")
         {
-            GameManager.Instance.Balls--;
+            _ballBehavior.reduceBallCountByOne();
             Destroy(gameObject);
             Debug.Log("Ball hit the floor!");
         }
         else
         {
-            // Handles the impact on the Paddle
+            // Handles the impact on the Paddle or walls.
             // collisions.contacts[0] just gets the first collision that occurs to the ball
             // The normal is the angle of reflection
             _rigidBody.velocity = Vector3.Reflect(_velocity, collision.contacts[0].normal);
         }
     }
+
+    // Ball Game logic implemented as Humble Object
+    public class BallBehavior {
+
+        public void reduceBallCountByOne()
+        {
+            GameManager.Instance.Balls--;
+            
+        }
+
+    }
+
   
 }
