@@ -59,12 +59,6 @@ public class score_tests
         Assert.AreEqual(score + score_increase, GameManager.Instance.Score);
     }
 
-    [UnityTest]
-    public IEnumerator correct_high_score_is_shown_on_game_over_screen()
-    {
-        yield return null;
-    }
-
     public void test_setup()
     {
         GameManager.Instance.SwitchState(GameManager.State.MENU, 0.5f);
@@ -77,6 +71,7 @@ public class score_tests
 
         GameManager.Instance.Level = 1;
         GameManager.Instance.SwitchState(GameManager.State.LOADLEVEL, 0.5f);
+        
     }
 
 }
