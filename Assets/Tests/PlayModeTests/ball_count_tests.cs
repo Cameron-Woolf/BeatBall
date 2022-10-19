@@ -8,8 +8,6 @@ using UnityEngine.TestTools;
 public class ball_count_tests
 {
 
-    private Ball _ball;
-    private GameManager _gameManager;
 
     [OneTimeSetUp]
     public void sceneSetUp()
@@ -26,13 +24,6 @@ public class ball_count_tests
        
     }
 
-    //[UnityTest]
-    //public IEnumerator switchToPlay()
-    //{ 
-
-    //    yield return new WaitForSeconds(3f);
-    //}
-
     [UnityTest]
     public IEnumerator ball_count_decreases_by_one_on_collision_with_floor()
     {
@@ -41,7 +32,15 @@ public class ball_count_tests
         yield return new WaitForSeconds(1f);
         var ballCount = GameManager.Instance.Balls;
         Debug.Log("Ball Test" + ballCount);
+
+        // Don't even really need this object..
         var ballGameObject = GameObject.FindObjectOfType<Ball>();
+
+        // To script this test, can we just create these objects programatically somehow
+        // and smash them together? Can the test script implement monobehavor?
+
+    
+       
         relocatePaddle();
 
         // ACT
