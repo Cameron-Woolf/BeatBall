@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case State.MENU:
-                Cursor.visible = true; // Hides the mouse cursor
+                Cursor.visible = true; // Shows the mouse cursor
                 highScore.text = "HIGHSCORE: " + PlayerPrefs.GetInt("high_score");  
                 panelMenu.SetActive(true);
                 break;
