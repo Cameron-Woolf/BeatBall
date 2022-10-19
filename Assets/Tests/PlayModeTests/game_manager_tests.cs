@@ -143,7 +143,7 @@ public class game_manager_tests
 
     public void test_setup()
     {
-      
+        GameManager.Instance.SwitchState(GameManager.State.MENU, 0.5f);
         GameManager.Instance.SwitchState(GameManager.State.INIT, 0.5f);
      
     }

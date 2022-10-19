@@ -39,8 +39,6 @@ public class ball_count_tests
         // To script this test, can we just create these objects programatically somehow
         // and smash them together? Can the test script implement monobehavor?
 
-    
-       
         relocatePaddle();
 
         // ACT
@@ -64,12 +62,10 @@ public class ball_count_tests
         // Zero the paddle and move it out of the way of the Ball
         relocatePaddle(); 
 
-
         // ACT
         // Reduce ball count to 1 and wait for it to hit the ground.
         GameManager.Instance.Balls--;
         GameManager.Instance.Balls--;
-     
         yield return new WaitForSeconds(2.0f);
 
         // ASSERT
