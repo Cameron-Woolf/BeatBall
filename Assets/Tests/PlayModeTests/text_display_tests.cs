@@ -38,9 +38,9 @@ public class text_display_tests
     {
         // ARRANGE
         test_setup();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         load_level_1();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         // ACT
         var currentLevel = GameManager.Instance.Level;
@@ -49,7 +49,7 @@ public class text_display_tests
 
         // ASSERT
         Assert.NotNull(levelTMPro);
-        Assert.AreEqual("Level: " + currentLevel, levelTMPro);
+        Assert.AreEqual("Level: " + currentLevel, levelText);
 
     }
 
