@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
                     }
                 }
 
-                //transform.childCount returns the number of childern under any Game Object
+                // transform.childCount returns the number of childern under any Game Object
                 // For me the Levels have Rows, which have all the Bricks.. So it's tricky
                 // All Game Objects have a Transform.
                 if(_currentLevel != null && _currentLevel.transform.GetChild(0).childCount == 0 && !_isSwitchingState)
