@@ -35,11 +35,8 @@ public class Brick : MonoBehaviour
         _hits--;
         // Score some points
         if(_hits <= 0)
-        { 
-            GameManager.Instance.Score += points;
-            //gameObject is always a predefined variable that accesses that Object
-            //the script is attached too.
-            Destroy(gameObject);
+        {
+            breakBrick();
         }
 
         brickHit();
@@ -70,6 +67,14 @@ public class Brick : MonoBehaviour
         // The orignal material of the Object can be accessed with sharedMaterial
         _orgMaterial = _renderer.sharedMaterial;
 
+    }
+
+    public void breakBrick()
+    {
+        GameManager.Instance.Score += points;
+        //gameObject is always a predefined variable that accesses that Object
+        //the script is attached too.
+        Destroy(gameObject);
     }
 
     private void brickHit()
