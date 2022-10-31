@@ -1,7 +1,7 @@
 # BeatBall
 
-First Project for learning Unity!
+First Project for learning Unity.
 
-Basic Arkanoid Game clone for practice the core concept of Unity.
+Basic Arkanoid Game clone for practicing the core concept of Unity.
 
 Contains some basic tests for practice Unity Test Framework.
